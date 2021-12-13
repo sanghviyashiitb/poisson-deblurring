@@ -19,7 +19,7 @@ H, W = 256, 256
 # # Load Model
 MODEL_FILE = 'model_zoo/p4ip_100epoch.pth'
 p4ip_net = P4IP_Net()
-p4ip_net.load_state_dict(torch.load(MODEL_FILE))
+p4ip_net.load_state_dict(torch.load(MODEL_FILE, map_location=device))
 p4ip_net.to(device)
 p4ip_net.eval()
 
