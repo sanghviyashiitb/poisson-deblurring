@@ -76,82 +76,11 @@ class U_Update(nn.Module):
 		t1 = rho1*x - M 
 		return 0.5*(1/rho1)*( t1 + torch.sqrt( (t1**2)+4*y*rho1)  )
 
-# class Z_Update(nn.Module):
-# 	def __init__(self, model_file='models/net_gray.pth'):
-# 		super(Z_Update, self).__init__()		
-# 		self.net = FFDNet(num_input_channels=1) 
-# 		# Load saved weights
-# 		if torch.cuda.is_available():
-# 			self.device = torch.device("cuda:0")
-# 			state_dict = torch.load(model_file)
-# 			device_ids = [0]
-# 			model = nn.DataParallel(self.net, device_ids=device_ids).cuda()
-# 		else:
-# 			self.device = torch.device("cpu")
-# 			state_dict = torch.load(model_fn, map_location='cpu')
-# 			# CPU mode: remove the DataParallel wrapper
-# 			state_dict = remove_dataparallel_wrapper(state_dict)
-# 			model = self.net
-# 		model.load_state_dict(state_dict)
-		
-# 	def forward(self, x, sigma):
-
-# 		N, C, H, W = x.size()	
-# 		scale = 1.0
-# 		shift = 0.5*(1-scale)
-		
-# 		x1, sigma1 = x*scale + shift, sigma*scale
-# 		noise_est, features = self.net(x1.float(), sigma1.float())
-# 		x_d1 = x1 - noise_est
-# 		x_d = (x_d1-shift)/scale
-# 		return x_d
-
-# class Z_Update_DnCNN(nn.Module):
-# 	def __init__(self):
-# 		super(Z_Update_DnCNN, self).__init__()		
-# 		self.net = DnCNN(channels=1,num_of_layers=12) 
-# 		self.net.apply(weights_init_kaiming)
-# 		# Load saved weights
-# 		if torch.cuda.is_available():
-# 			self.device = torch.device("cuda:0")
-# 			device_ids = [0]
-# 			model = nn.DataParallel(self.net, device_ids=device_ids).cuda()
-# 		else:
-# 			self.device = torch.device("cpu")
-# 			state_dict = torch.load(model_fn, map_location='cpu')
-# 			# CPU mode: remove the DataParallel wrapper
-# 			state_dict = remove_dataparallel_wrapper(state_dict)
-# 			model = self.net
-		
-# 	def forward(self, x):
-
-# 		N, C, H, W = x.size()	
-# 		scale = 1.0
-# 		shift = 0.5*(1-scale)
-		
-# 		x1 = x*scale + shift
-# 		noise_est = self.net(x1.float())
-# 		x_d1 = x1 - noise_est
-# 		x_d = (x_d1-shift)/scale
-# 		return x_d
-
-
 class Z_Update_ResUNet(nn.Module):
 	def __init__(self):
 		super(Z_Update_ResUNet, self).__init__()		
-		self.net = ResUNet() 
-		# Load saved weights
-		if torch.cuda.is_available():
-			self.device = torch.device("cuda:0")
-			device_ids = [0]
-			model = nn.DataParallel(self.net, device_ids=device_ids).cuda()
-		else:
-			self.device = torch.device("cpu")
-			state_dict = torch.load(model_fn, map_location='cpu')
-			# CPU mode: remove the DataParallel wrapper
-			state_dict = remove_dataparallel_wrapper(state_dict)
-			model = self.net
-		
+		self.net = ResUNet()
+	
 	def forward(self, x):
 		x_out = self.net(x.float())
 		return x_out
@@ -194,7 +123,7 @@ class InitNet(nn.Module):
 
 		
 class P4IP_Net(nn.Module):
-	def __init__(self, n_iters=8):
+	def __init__(self, n_iters=8, device = 'cuda'):
 		super(P4IP_Net, self).__init__()
 		self.n =  n_iters
 		self.init = InitNet(self.n)
@@ -212,20 +141,22 @@ class P4IP_Net(nn.Module):
 		return x0
 
 	def forward(self, y, kernel, M):
+		device = torch.device("cuda:0" if y.is_cuda else "cpu")
 		x_list = []
+
 		N, C, H, W = y.size()
 		# Generate auxiliary variables for convolution
 		k_pad, A = psf_to_otf(kernel, y.size())
-		A =  A.to('cuda')
+		A =  A.to(device)
 		At, AtA_fft = torch.conj(A), torch.abs(A)**2
 		rho1_iters, rho2_iters = self.init(kernel, M) 	# Hyperparameters
 		x = self.init_l2(y, A, M)	# Initialization using Weiner Deconvolution
 		x_list.append(x)
 		# Other ADMM variables
-		z = Variable(x.data.clone()).to('cuda')
-		u = Variable(y.data.clone()).to('cuda')
-		v1 = torch.zeros(y.size()).to('cuda')
-		v2 = torch.zeros(y.size()).to('cuda')
+		z = Variable(x.data.clone()).to(device)
+		u = Variable(y.data.clone()).to(device)
+		v1 = torch.zeros(y.size()).to(device)
+		v2 = torch.zeros(y.size()).to(device)
 			
 		for n in range(self.n):
 			rho1 = rho1_iters[:,:,:,n].view(N,1,1,1)
@@ -241,33 +172,4 @@ class P4IP_Net(nn.Module):
 
 		return x_list
 
-	def debug_forward(self, y, kernel, M):
-		x_list = []
-		N, C, H, W = y.size()
-		# Generate auxiliary variables for convolution
-		k_pad, A = psf_to_otf(kernel, y.size())
-		A =  A.to('cuda')
-		At, AtA_fft = torch.conj(A), torch.abs(A)**2
-		rho1_iters, rho2_iters = self.init(kernel, M) 	# Hyperparameters
-		x = self.init_l2(y, A, M)	# Initialization using Weiner Deconvolution
-		x_list.append(x)
-		# Other ADMM variables
-		z = Variable(x.data.clone()).to('cuda')
-		u = Variable(y.data.clone()).to('cuda')
-		v1 = torch.zeros(y.size()).to('cuda')
-		v2 = torch.zeros(y.size()).to('cuda')
-			
-		for n in range(self.n):
-			rho1 = rho1_iters[:,:,:,n].view(N,1,1,1)
-			rho2 = rho2_iters[:,:,:,n].view(N,1,1,1)
-			# U, Z and X updates
-			u = self.U(conv_fft_batch(A,x) + v1, y, rho1, M)
-			z = self.Z(x + v2)
-			x = self.X( conv_fft_batch(At,u - v1), z - v2, AtA_fft, rho1, rho2)
-			# Lagrangian updates			
-			v1 = v1 + conv_fft_batch(A,x) - u
-			v2 = v2 + x - z
-			x_list.append(x)
-
-		return x_list, torch.squeeze(rho1_iters), torch.squeeze(rho2_iters)
-		
+	
