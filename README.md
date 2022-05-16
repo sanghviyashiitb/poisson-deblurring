@@ -1,7 +1,7 @@
 # Photon-Limited Deblurring Dataset
 Real world dataset for evaluation of deblurring algorithms (both non-blind and blind) in the presence of photon shot noise. 
 
-<img src=docs/imaging_setup.png width=500> <img src=docs/imaging_setup.jpg width=300>
+<img src=https://github.com/sanghviyashiitb/poisson-deblurring/blob/docs/docs/imaging_setup.jpg width=500> <img src=docs/imaging_setup.jpg width=300>
 
 
 Contains 
