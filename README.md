@@ -1,7 +1,9 @@
 # Photon-Limited Deblurring Dataset
 Real world dataset for evaluation of deblurring algorithms (both non-blind and blind) in the presence of photon shot noise. 
 
-<img src="docs/imaging_setup.png" width=400/> <img src="docs/imaging_setup.jpg" width=250/>
+### [Download Link](https://1drv.ms/u/s!AjMYTt_aGQ9-hH_myp4irQREzX3K?e=NwARXc)
+
+<img src="docs/imaging_setup.png" width=300/> <img src="docs/imaging_setup.jpg" width=200/>
 
 ### Contains 
 <ul> 
@@ -9,19 +11,16 @@ Real world dataset for evaluation of deblurring algorithms (both non-blind and b
       <li>Corresponding blur kernel captured using a 30um pinhole</li>
       <li>Ground truth for each image.</li> 
 </ul>
-
-### [Download Link](https://1drv.ms/u/s!AjMYTt_aGQ9-hH_myp4irQREzX3K?e=NwARXc)
+For a description of how to evaluate your deblurring algorithm on this dataset, refer to the file [demo_synthetic.py](https://github.com/sanghviyashiitb/poisson-deblurring/blob/main/demo_synthetic.py) in our Github repository.
 
 ### Current Benchmarks 
 | Method      | PSNR / SSIM |
 | -----------  | ----------- |
-|              |             |
 | **Unrolled-Poisson PnP  [1]** |    **23.48 / 0.566** |
 | Deep-Wiener Deconvolution [2]  | 22.85 / 0.561 |
 | Deep PnP Image Restoration [3]  | 22.09 / 0.548 |
 | PURE-LET [4]  | 20.88 / 0.501 |
 | RGDN [5]  | 19.80 / 0.476 |
-
 
 [1] Sanghvi, Yash, Abhiram Gnanasambandam, and Stanley H. Chan. "Photon Limited Non-Blind Deblurring Using Algorithm Unrolling." arXiv preprint arXiv:2110.15314 2021
 
@@ -34,4 +33,4 @@ Real world dataset for evaluation of deblurring algorithms (both non-blind and b
 [5] D. Gong, Z. Zhang, Q. Shi, A. van den Hengel, C. Shen, and Y. Zhang, “Learning deep gradient descent optimization for image deconvolution,”
 IEEE Transactions on Neural Networks and Learning Systems, vol. 31, no. 12, pp. 5468–5482, 2020
 
-Feel free to ask your questions/share your feedback at sanghviyash95@gmail.com
+Feel free to ask your questions/share your feedback at ysanghvi@purdue.edu
