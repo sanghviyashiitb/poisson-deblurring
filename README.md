@@ -11,7 +11,7 @@ Real world dataset for evaluation of deblurring algorithms (both non-blind and b
       <li>Corresponding blur kernel captured using a 30um pinhole</li>
       <li>Ground truth for each image.</li> 
 </ul>
-For a description of how to evaluate your deblurring algorithm on this dataset, refer to the file [demo_synthetic.py](https://github.com/sanghviyashiitb/poisson-deblurring/blob/main/demo_synthetic.py) in our Github repository.
+For a description of how to evaluate your deblurring algorithm on this dataset, refer to the file <a href="https://github.com/sanghviyashiitb/poisson-deblurring/blob/main/demo_synthetic.py">demo_synthetic.py</a> in our Github repository.
 
 ### Current Benchmarks 
 | Method      | PSNR / SSIM |
