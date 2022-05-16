@@ -1,7 +1,17 @@
 # Photon-Limited Deblurring Dataset
-Real world dataset for evaluation of non-blind deblurring algorithms in the presence of photon shot noise. Contains 30 images at different light levels and blurred by different motion kernels - ground truth kernel captured using a point source.
+Real world dataset for evaluation of deblurring algorithms (both non-blind and blind) in the presence of photon shot noise. 
 
-[Download](https://1drv.ms/u/s!AjMYTt_aGQ9-hH_myp4irQREzX3K?e=NwARXc)
+<img src=https://user-images.githubusercontent.com/20774419/168657381-49842a0e-48b1-4f14-bdab-ec29e4837b1e.jpg width=500>
+
+
+Contains 
+<ul> 
+      <li>30 low-light photon shot noise corrputed, blurred images in .RAW format</li>
+      <li>Corresponding blur kernel captured using a 30um pinhole</li>
+      <li>Ground truth for each image.</li> 
+</ul>
+
+### [Download Link](https://1drv.ms/u/s!AjMYTt_aGQ9-hH_myp4irQREzX3K?e=NwARXc)
 
 ## Instructions
 1. Create a local copy of repository using the following commands
