@@ -55,5 +55,5 @@ Real world dataset for evaluation of non-blind deblurring algorithms in the pres
       ### Output:
       
       ![demo_real](results/demo_real.png)
-
+      PSNR: 29.08, SSIM: 0.696
 Feel free to ask your questions/share your feedback at sanghviyash95@gmail.com
