@@ -1,36 +1,21 @@
 # Photon-Limited Deblurring Dataset
-Real world dataset for evaluation of deblurring algorithms (both non-blind and blind) in the presence of photon shot noise. 
+## Abstract
+Image deblurring in photon-limited conditions is ubiquitous in a variety of low-light applications such as photography, microscopy and astronomy. However, the presence of the photon shot noise due to the low illumination and/or short exposure makes the deblurring task substantially more challenging than the conventional deblurring problems. In this paper, we present an algorithm unrolling approach for the photon-limited deblurring problem by unrolling a Plug-and-Play algorithm for a fixed number of iterations. By introducing a three-operator splitting formation of the  Plug-and-Play framework, we obtain a series of differentiable steps which allows the fixed iteration unrolled network to be trained end-to-end. The proposed algorithm demonstrates significantly better image recovery compared to existing state-of-the-art deblurring approaches. We also present a new photon-limited deblurring dataset for evaluating the performance of algorithms. 
 
-### [Download Link](https://1drv.ms/u/s!AjMYTt_aGQ9-hH_myp4irQREzX3K?e=NwARXc)
+<img src="https://user-images.githubusercontent.com/20774419/177592703-52f38ad4-1750-4157-841d-b8610173576e.png"  class="center" width="800">
+
+## Unrolled Network Architecutre using 3-operator Plug-and-Play:
+<img src="https://user-images.githubusercontent.com/20774419/177593608-9b5ccba2-ca3d-485a-9542-5f08df8e081a.png" width="800">
+
+Pretrained model here: 
+      [OneDrive](https://1drv.ms/u/s!AjMYTt_aGQ9-hH2aIaReD3DG_ITF)
+      [Google-Drive](https://drive.google.com/file/d/1n2_RkgZ0z9rhS2r4rZ2lr2AZn_B5_vbZ/view?usp=sharing)
+
+## ICASSP Video Presentation
+[![ICASSP](http://img.youtube.com/vi/bJHiUKzjaCI/0.jpg)](http://www.youtube.com/watch?v=bJHiUKzjaCI "Non-Blind Photon-Limited Deblurring")
+
+## [Photon-Limited Deblurring Dataset](https://sanghviyashiitb.github.io/poisson-deblurring/)
+Real world dataset for evaluation of non-blind deblurring algorithms in the presence of photon shot noise. Contains 30 images at different light levels and blurred by different motion kernels - ground truth kernel captured using a point source.
 
 <img src="docs/imaging_setup.png" width=300/> <img src="docs/imaging_setup.jpg" width=200/>
-
-### Contains 
-<ul> 
-      <li>30 low-light photon shot noise corrputed, blurred images in .RAW format</li>
-      <li>Corresponding blur kernel captured using a 30um pinhole</li>
-      <li>Ground truth for each image.</li> 
-</ul>
-For a description of how to evaluate your deblurring algorithm on this dataset, refer to the file <a href="https://github.com/sanghviyashiitb/poisson-deblurring/blob/main/demo_synthetic.py">demo_synthetic.py</a> in our Github repository.
-
-### Current Benchmarks 
-| Method      | PSNR / SSIM |
-| -----------  | ----------- |
-| **Unrolled-Poisson PnP  [1]** |    **23.48 / 0.566** |
-| Deep-Wiener Deconvolution [2]  | 22.85 / 0.561 |
-| Deep PnP Image Restoration [3]  | 22.09 / 0.548 |
-| PURE-LET [4]  | 20.88 / 0.501 |
-| RGDN [5]  | 19.80 / 0.476 |
-
-[1] Sanghvi, Yash, Abhiram Gnanasambandam, and Stanley H. Chan. "Photon Limited Non-Blind Deblurring Using Algorithm Unrolling." arXiv preprint arXiv:2110.15314 2021
-
-[2] J. Dong, S. Roth, and B. Schiele, “Deep Wiener deconvolution: Wiener meets deep learning for image deblurring,” in 34th Conference on Neural Information Processing Systems, Curran Associates, Inc., 2020
-
-[3] K. Zhang, W. Zuo, S. Gu, and L. Zhang, “Learning deep CNN denoiser prior for image restoration,” in Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 3929–3938, 2017.
-
-[4] J. Li, F. Luisier, and T. Blu, “Pure-let image deconvolution,” IEEE Transactions on Image Processing, vol. 27, no. 1, pp. 92–105, 2017.
-
-[5] D. Gong, Z. Zhang, Q. Shi, A. van den Hengel, C. Shen, and Y. Zhang, “Learning deep gradient descent optimization for image deconvolution,”
-IEEE Transactions on Neural Networks and Learning Systems, vol. 31, no. 12, pp. 5468–5482, 2020
-
 Feel free to ask your questions/share your feedback at ysanghvi@purdue.edu
