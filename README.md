@@ -18,4 +18,5 @@ Pretrained model here:
 Real world dataset for evaluation of non-blind deblurring algorithms in the presence of photon shot noise. Contains 30 images at different light levels and blurred by different motion kernels - ground truth kernel captured using a point source.
 
 <img src="docs/imaging_setup.png" width=300/> <img src="docs/imaging_setup.jpg" width=200/>
+
 Feel free to ask your questions/share your feedback at ysanghvi@purdue.edu
