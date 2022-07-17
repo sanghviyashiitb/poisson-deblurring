@@ -34,12 +34,10 @@ def p4ip_wrapper_pad(y, k, M, p4ip):
 	Ht = img_to_tens(k).to(device).float()	
 	yt = img_to_tens(y_pad).to(device)
 	Mt = scalar_to_tens(M).to(device)
-
 	with torch.no_grad():
 		x_rec_list = p4ip(yt, Ht, Mt)
-	
-	x_rec = x_rec_list[-1]
-	x_rec = np.clip(x_rec.cpu().detach().numpy(),0,1)
+		x_rec = x_rec_list[-1]
+		x_rec = np.clip(x_rec.cpu().detach().numpy(),0,1)
 
 	x_out = x_rec[0,0,:,:]
 	x_out = x_out[H1:H1+H, W1:W1+W]
@@ -94,15 +92,40 @@ def p4ip_bayer(y, k, p4ip):
 
 	return out, out_rggb, M_list
 
-def rggb_to_rgb(rggb, H, W, mode='BGGR'):
-	out = np.zeros([H,W], dtype=np.float32)
-	out[0::2, 0::2] = rggb[0]
-	out[1::2, 0::2] = rggb[1]
-	out[0::2, 1::2] = rggb[2]
-	out[1::2, 1::2] = rggb[3]
 
-	out_rgb = bayer_to_rgb(out, mode)
-	return out_rgb	
+
+def gray_world_whitebalance(x_rgb):
+    mean_channels = np.mean(x_rgb, axis=(0,1))
+    for idx in range(3):
+        x_rgb[:,:,idx] /= mean_channels[idx]
+    return x_rgb
+
+# def rggb_to_rgb(rggb, H, W, mode='BGGR'):
+# 	out = np.zeros([H,W], dtype=np.float32)
+# 	out[0::2, 0::2] = rggb[0]
+# 	out[1::2, 0::2] = rggb[1]
+# 	out[0::2, 1::2] = rggb[2]
+# 	out[1::2, 1::2] = rggb[3]
+
+# 	out_rgb = bayer_to_rgb(out, mode)
+# 	return out_rgb	
+
+def rggb_to_rgb(rggb, H, W, mode='BGGR'):
+    x = np.zeros([H,W], dtype=np.float32)
+    
+    x[0::2, 0::2] = rggb[0]
+    x[1::2, 0::2] = rggb[1]
+    x[0::2, 1::2] = rggb[2]
+    x[1::2, 1::2] = rggb[3]
+    min_x, max_x = np.min(np.ravel(x)), np.max(np.ravel(x))
+    x1 = np.uint16((x - min_x)/(max_x - min_x) * (2**16 - 1))
+    if mode == 'BGGR':
+        x_rgb = cv.cvtColor( x1, cv.COLOR_BayerGR2RGB)
+        x_rgb = x_rgb.astype('float32')*(max_x - min_x)/(2**16 - 1) + min_x
+    if mode == 'RGGB':
+        x_rgb = cv.cvtColor( x1, cv.COLOR_BayerRG2RGB)
+        x_rgb = x_rgb.astype('float32')*(max_x - min_x)/(2**16 - 1) + min_x
+    return x_rgb
 
 def bayer_to_rgb(x, mode='BGGR'):
 	min_x, max_x = np.min(np.ravel(x)), np.max(np.ravel(x))
@@ -169,8 +192,7 @@ def img_register_file(file_true, file_est):
 
 	# Use this matrix to transform the
 	# colored image wrt the reference image.
-	transformed_img = cv.warpPerspective(img1_color,
-										  homography, (width, height))
+	transformed_img = cv.warpPerspective(img1_color,homography, (width, height))
 
 	return transformed_img, img2_color
 
@@ -222,7 +244,13 @@ def img_register(im_true, im_est):
 
 	# Use this matrix to transform the
 	# colored image wrt the reference image.
-	transformed_img = cv.warpPerspective(img1_color,
-										  homography, (width, height))
+	transformed_img = cv.warpPerspective(img1_color, homography, (width, height))
 
+	# Whitebalance second image to that of first
+	transformed_img_float = transformed_img.astype(np.float32)
+	mean_target = np.mean(transformed_img_float, axis=(0,1))
+	mean_src = np.mean(img2_color.astype(np.float32), axis=(0,1))
+	
+	for idx in range(3):
+		img2_color[:,:,idx] = img2_color[:,:,idx].astype(np.float32)*mean_target[idx]/mean_src[idx]
 	return transformed_img, img2_color
