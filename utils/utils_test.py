@@ -246,11 +246,13 @@ def img_register(im_true, im_est):
 	# colored image wrt the reference image.
 	transformed_img = cv.warpPerspective(img1_color, homography, (width, height))
 
-	# Whitebalance second image to that of first
-	transformed_img_float = transformed_img.astype(np.float32)
-	mean_target = np.mean(transformed_img_float, axis=(0,1))
-	mean_src = np.mean(img2_color.astype(np.float32), axis=(0,1))
-	
-	for idx in range(3):
-		img2_color[:,:,idx] = img2_color[:,:,idx].astype(np.float32)*mean_target[idx]/mean_src[idx]
 	return transformed_img, img2_color
+
+
+def change_whitebalance(img_src, img_target):        
+    mean_src = np.mean(img_src, axis=(0,1))
+    mean_target = np.mean(img_target, axis=(0,1))
+
+    for idx in range(3):
+        img_src[:,:,idx] = img_src[:,:,idx].astype(np.float32)*mean_target[idx]/mean_src[idx]
+    return img_src, img_target
