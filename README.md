@@ -37,13 +37,22 @@ Pretrained model here:
       foo@bar:~/poisson-deblurring$ python3 demo_synthetic.py  --idx=11
       ```
       (Variable ```idx``` represents the file index and can be any integer from [0,29] )
-      
 
-      
       ![demo_real](results/demo_real.png)
       
       ##### Output: PSNR: 29.08, SSIM: 0.696
 
       
       
+ ### Citation
+ 
+ ```
+ @article{sanghvi2021photon,
+  title={Photon limited non-blind deblurring using algorithm unrolling},
+  author={Sanghvi, Yash and Gnanasambandam, Abhiram and Chan, Stanley H},
+  journal={arXiv preprint arXiv:2110.15314},
+  year={2021}
+}
+ ```
+
 Feel free to ask your questions/share your feedback at sanghviyash95@gmail.com
