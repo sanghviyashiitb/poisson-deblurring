@@ -1,14 +1,4 @@
-<div class="logo-git">
-<center>
-<img src="https://user-images.githubusercontent.com/20774419/180038681-991987d5-6728-4d45-927c-cad25bbafa7e.png" width=60/>&nbsp;&nbsp;&nbsp;
-<img src="https://user-images.githubusercontent.com/20774419/180038681-991987d5-6728-4d45-927c-cad25bbafa7e.png" width=60/>&nbsp;&nbsp;&nbsp;
-<img src="https://user-images.githubusercontent.com/20774419/180038681-991987d5-6728-4d45-927c-cad25bbafa7e.png" width=60/>
 
-&nbsp;<a href="https://github.com/sanghviyashiitb/poisson-deblurring">Code</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://github.com/sanghviyashiitb/poisson-deblurring">Code</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://github.com/sanghviyashiitb/poisson-deblurring">Code</a>
-</center>
-</div>
 
 ## Abstract
 
