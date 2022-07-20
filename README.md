@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="css/float.css">
-</head>
-<body>
-<div class="row">
-      <div class="float-child">
-            <a href="https://arxiv.org/pdf/2110.15314.pdf">
-                  <image src="img/arxiv.png" width="60px">
-                        <h4><strong>Paper</strong></h4>
-          </a>
-      </div>
-      <div class="float-child">
-            <a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
-                  <image src="img/github.png" width="60px">
-                        <h4><strong>Code</strong></h4>   
-          </a>
-      </div>
-      <div class="float-child">
-            <a href="https://github.com/sanghviiitb/poisson-deblurring/">
-                  <image src="img/dataset3.jpg" width="60px">
-                        <h4><strong>Dataset</strong></h4>
-            </a>
-      </div>
+<div style='float:left;'> 
+<a href="https://arxiv.org/pdf/2110.15314.pdf">
+      <image src="img/arxiv.png" width="60px">
+      <h4>Paper</h4>
+</a>
+<div style='float:left;'> 
+<a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
+      <image src="img/github.png" width="60px">  
+      <h4>Code</h4>
+</a>
 </div>
-
-
+<div style='float:left;'> 
+<a href="https://github.com/sanghviiitb/poisson-deblurring/">
+      <image src="img/dataset3.jpg" width="60px">
+      <h4>Dataset</h4>
+</a>
+</div>
             
             
 ## Abstract
