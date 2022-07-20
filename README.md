@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/float.css">
 </head>
 <body>
-<div class="float-container">
+<div class="row">
       <div class="float-child">
             <a href="https://arxiv.org/pdf/2110.15314.pdf">
           <image src="img/arxiv.png" width="60px">
