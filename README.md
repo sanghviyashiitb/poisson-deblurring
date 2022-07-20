@@ -32,6 +32,7 @@ Image deblurring in photon-limited conditions is ubiquitous in a variety of low-
 <h2>Unrolled Network Architecutre using 3-operator Plug-and-Play</h2>
 <br>
 <img src="https://user-images.githubusercontent.com/20774419/177593608-9b5ccba2-ca3d-485a-9542-5f08df8e081a.png" width="800">
+</div>
 
 Pretrained model here: 
       [OneDrive](https://1drv.ms/u/s!AjMYTt_aGQ9-hH2aIaReD3DG_ITF)
@@ -40,10 +41,9 @@ Pretrained model here:
 ## ICASSP Video Presentation
 [![ICASSP](http://img.youtube.com/vi/bJHiUKzjaCI/0.jpg)](http://www.youtube.com/watch?v=bJHiUKzjaCI "Non-Blind Photon-Limited Deblurring")
 
-## [Photon-Limited Deblurring Dataset](https://sanghviyashiitb.github.io/poisson-deblurring/)
+## Photon-Limited Deblurring Dataset
 Real world dataset for evaluation of non-blind deblurring algorithms in the presence of photon shot noise. Contains 30 images at different light levels and blurred by different motion kernels - ground truth kernel captured using a point source.
 
 <img src="docs/imaging_setup.png" width=300/> <img src="docs/imaging_setup.jpg" width=200/>
 
 Feel free to ask your questions/share your feedback at ysanghvi@purdue.edu
-</div>
