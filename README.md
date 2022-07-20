@@ -28,6 +28,7 @@ Image deblurring in photon-limited conditions is ubiquitous in a variety of low-
 <img src="https://user-images.githubusercontent.com/20774419/177592703-52f38ad4-1750-4157-841d-b8610173576e.png"  class="center" width="800">
 </div>
 
+<div style:'float:left;'>
 <h2>Unrolled Network Architecutre using 3-operator Plug-and-Play</h2>
 <br>
 <img src="https://user-images.githubusercontent.com/20774419/177593608-9b5ccba2-ca3d-485a-9542-5f08df8e081a.png" width="800">
@@ -45,4 +46,4 @@ Real world dataset for evaluation of non-blind deblurring algorithms in the pres
 <img src="docs/imaging_setup.png" width=300/> <img src="docs/imaging_setup.jpg" width=200/>
 
 Feel free to ask your questions/share your feedback at ysanghvi@purdue.edu
-            </body>
+</div>
