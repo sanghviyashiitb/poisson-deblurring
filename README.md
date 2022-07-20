@@ -1,16 +1,22 @@
 <div class="row">
-      <div class="item">
-      <img src="img/arxiv.png" width="60"><br>
-      <span class="caption"><a href="https://arxiv.org/pdf/2110.15314.pdf">Paper</a></span>
-      <div class="item">
-            
-            
-      <div class="item1">
-      <img src="img/github.png" width="60"><br>
-      <span class="caption"><a href="https://github.com/sanghviiitb/poisson-deblurring">Code</a></span>
-      <div class="item">
-            
-            
+      <ul> 
+            <li>
+            <a href="https://arxiv.org/pdf/2110.15314.pdf">
+                            <image src="img/arxiv.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                  </li>
+            <li><a href="https://github.com/sanghviiitb/poisson-deblurring/">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                  </li>
+            <li><a href="https://github.com/sanghviiitb/poisson-deblurring/">
+                            <image src="img/dataset3.jpg" height="60px">
+                                <h4><strong>Dataset</strong></h4>
+                            </a>
+                  </li>
+      </ul>
 </div>
 
             
