@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/float.css">
+</head>
+<body>
 <div class="float-contained">
       <div class="float-child">
             <a href="https://arxiv.org/pdf/2110.15314.pdf">
