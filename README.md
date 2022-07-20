@@ -7,19 +7,19 @@
 <div class="float-container">
       <div class="float-child">
             <a href="https://arxiv.org/pdf/2110.15314.pdf">
-          <image src="img/arxiv.png" height="60px">
+          <image src="img/arxiv.png" width="60px">
             <h4><strong>Paper</strong></h4>
           </a>
       </div>
       <div class="float-child">
-            <a href="https://github.com/sanghviiitb/poisson-deblurring/" float="center">
-          <image src="img/github.png" height="60px">
+            <a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
+          <image src="img/github.png" width="60px">
               <h4><strong>Code</strong></h4>   
           </a>
       </div>
       <div class="float-child">
       <a href="https://github.com/sanghviiitb/poisson-deblurring/">
-            <image src="img/dataset3.jpg" height="60px">
+            <image src="img/dataset3.jpg" width="60px">
                   <h4><strong>Dataset</strong></h4>
             </a>
       </div>
