@@ -1,22 +1,24 @@
-<div style='float:left;'> 
+<div style='float:left;padding:5%;'> 
 <a href="https://arxiv.org/pdf/2110.15314.pdf">
-      <image src="img/arxiv.png" width="60px">
+      <image src="img/arxiv.png" height="60px">
       <h4>Paper</h4>
 </a>
-<div style='float:left;'> 
+<div style='float:left;padding:5%;'> 
 <a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
-      <image src="img/github.png" width="60px">  
+      <image src="img/github.png" height="60px">  
       <h4>Code</h4>
 </a>
 </div>
-<div style='float:left;'> 
+<div style='float:left;padding:5%;'> 
 <a href="https://github.com/sanghviiitb/poisson-deblurring/">
-      <image src="img/dataset3.jpg" width="60px">
+      <image src="img/dataset3.jpg" height="60px">
       <h4>Dataset</h4>
 </a>
 </div>
             
-            
+
+ 
+      
 ## Abstract
 Image deblurring in photon-limited conditions is ubiquitous in a variety of low-light applications such as photography, microscopy and astronomy. However, the presence of the photon shot noise due to the low illumination and/or short exposure makes the deblurring task substantially more challenging than the conventional deblurring problems. In this paper, we present an algorithm unrolling approach for the photon-limited deblurring problem by unrolling a Plug-and-Play algorithm for a fixed number of iterations. By introducing a three-operator splitting formation of the  Plug-and-Play framework, we obtain a series of differentiable steps which allows the fixed iteration unrolled network to be trained end-to-end. The proposed algorithm demonstrates significantly better image recovery compared to existing state-of-the-art deblurring approaches. We also present a new photon-limited deblurring dataset for evaluating the performance of algorithms. 
 
