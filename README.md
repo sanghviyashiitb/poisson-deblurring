@@ -1,4 +1,8 @@
-
+<div class="row">
+      <img src="img/arxiv.png" width="60">
+      <img src="img/github.png" width="60">
+      <img src="img/dataset3.jpg" width="60">
+      </div>
 
 ## Abstract
 
