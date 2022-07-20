@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/float.css">
 </head>
 <body>
-<div class="float-contained">
+<div class="float-container">
       <div class="float-child">
             <a href="https://arxiv.org/pdf/2110.15314.pdf">
           <image src="img/arxiv.png" height="60px">
@@ -49,3 +49,4 @@ Real world dataset for evaluation of non-blind deblurring algorithms in the pres
 <img src="docs/imaging_setup.png" width=300/> <img src="docs/imaging_setup.jpg" width=200/>
 
 Feel free to ask your questions/share your feedback at ysanghvi@purdue.edu
+            </body>
