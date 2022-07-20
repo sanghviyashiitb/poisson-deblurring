@@ -3,6 +3,7 @@
       <image src="img/arxiv.png" height="60px">
       <h4>Paper</h4>
 </a>
+</div>
 <div style='float:left;padding:5%;'> 
 <a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
       <image src="img/github.png" height="60px">  
