@@ -1,7 +1,8 @@
 <div class="row">
-      <img src="img/arxiv.png" width="60">
-      <img src="img/github.png" width="60">
-      <img src="img/dataset3.jpg" width="60">
+      <div class="item">
+      <img src="img/arxiv.png" width="60"><br>
+      <span class="caption"><a href="https://arxiv.org/pdf/2110.15314.pdf">Paper</a></span>
+      <div class="item">
 </div>
 
 ## Abstract
