@@ -71,16 +71,21 @@ MODE = 'BGGR' if IDX in [15,20,24] else 'RGGB'
 x_p4ip = rggb_to_rgb(rggb, H, W, MODE); x_p4ip = gray_world_whitebalance(x_p4ip)/2.0
 y = rggb_to_rgb(y_list, H, W, MODE); y = gray_world_whitebalance(y)/2.0
 
+"""
+Evaluation of reconstruction method starts here
+"""
+# Step 0: Load the ground-truth
 IDX_CLEAN = int(IDX/3)
 x_gt = cv2.imread(DIR+'lux5_clean/'+str(IDX_CLEAN)+'.png') # clean image
 x_gt = np.flip(x_gt, 2) ## Flip because cv2 loads in BGR format instead of RGB
+# Step 1: Register the ground-truth image to the reconstruction
 x_p4ip_norm = (x_p4ip-np.min(x_p4ip))/(np.max(x_p4ip)-np.min(x_p4ip))
 im_register, _ =  img_register(x_gt, (x_p4ip_norm*255).astype(np.uint8))
+# Step 2: Once the ground-truth is registered, change the whitebalance of reconstruction so match that of the ground-truth
+# After this step our image isready for comparison
 im_estimated, im_register = change_whitebalance(x_p4ip, im_register.astype(np.float32)) 
 y, _ = change_whitebalance(y, im_register.astype(np.float32)) 
-
-
-
+# Step 3 (Final): Actually evaluate the PSNR and SSIM
 err = im_register-im_estimated
 err_mean = np.sqrt(np.mean(err**2))
 psnr=-20*np.log10(err_mean/255.0)
