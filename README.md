@@ -1,18 +1,18 @@
 <div style='width:100%;'>
-<div style='float:left;width:33%;'> 
+<div style='float:left;'> 
 <a href="https://arxiv.org/pdf/2110.15314.pdf">
       <image src="img/arxiv.png" height="60px">
       <h4>Paper</h4>
 </a>
 </div>
-<div style='float:left;width:33%;'> 
+<div style='float:left;'> 
 <a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
       <image src="img/github.png" height="60px">  
       <h4>Code</h4>
 </a>
 </div>
-<div style='float:left;width:33%;'> 
-<a href="https://github.com/sanghviiitb/poisson-deblurring/">
+<div style='float:left;'> 
+<a href="https://aaaakshat.github.io/pldd/">
       <image src="img/dataset3.jpg" height="60px">
       <h4>Dataset</h4>
 </a>
