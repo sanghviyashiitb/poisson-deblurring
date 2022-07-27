@@ -1,17 +1,17 @@
 <div style='width:100%;'>
-<div style='float:left;width:30%;padding:5%;'> 
+<div style='float:left;width:30%;'> 
 <a href="https://arxiv.org/pdf/2110.15314.pdf">
       <image src="img/arxiv.png" height="60px">
       <h4>Paper</h4>
 </a>
 </div>
-<div style='float:left;width:30%;padding:5%;'> 
+<div style='float:left;width:30%;'> 
 <a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
       <image src="img/github.png" height="60px">  
       <h4>Code</h4>
 </a>
 </div>
-<div style='float:left;width:30%;padding:5%;'> 
+<div style='float:left;width:30%;'> 
 <a href="https://aaaakshat.github.io/pldd/">
       <image src="img/dataset3.jpg" height="60px">
       <h4>Dataset</h4>
@@ -29,8 +29,8 @@ Image deblurring in photon-limited conditions is ubiquitous in a variety of low-
 <br>
 </div>
 
-<div style:'float:left;'>
-<h2>Unrolled Network Architecutre using 3-operator Plug-and-Play</h2>
+<div style:'float:left;width:100%;'>
+<h2>Unrolled Network Architecture using 3-operator Plug-and-Play</h2>
 <br>
 <img src="https://user-images.githubusercontent.com/20774419/177593608-9b5ccba2-ca3d-485a-9542-5f08df8e081a.png" width="800">
 </div>
