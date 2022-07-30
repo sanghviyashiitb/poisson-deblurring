@@ -1,25 +1,25 @@
 <div style='width:100%;'>
 <div style='float:left;width:25%;'> 
-<a style="text-align:center" href="https://arxiv.org/pdf/2110.15314.pdf">
-      <image src="img/arxiv.png" style="text-align:center" height="60px">
+<a href="https://arxiv.org/pdf/2110.15314.pdf">
+      <image src="img/arxiv.png" height="60px">
       <h4>Paper</h4>
 </a>
 </div>
 <div style='float:left;width:25%;'> 
-<a style="text-align:center" href="https://ieeexplore.ieee.org/document/9746543/">
-      <image src="img/pdf.png" style="text-align:center" height="60px">
+<a  href="https://ieeexplore.ieee.org/document/9746543/">
+      <image src="img/pdf.png" height="60px">
       <h4>PDF</h4>
 </a>
 </div>
-<div style='float:left;width:20%;'> 
-<a style="text-align:center" href="https://github.com/sanghviyashiitb/poisson-deblurring/">
-      <image src="img/github.png" style="text-align:center" height="60px">  
+<div style='float:left;width:25%;'> 
+<a href="https://github.com/sanghviyashiitb/poisson-deblurring/">
+      <image src="img/github.png" height="60px">  
       <h4>Code</h4>
 </a>
 </div>
-<div style='float:left;width:20%;'> 
-<a style="text-align:center" href="https://aaaakshat.github.io/pldd/">
-      <image src="img/dataset3.jpg" style="text-align:center" height="60px">
+<div style='float:left;width:25%;'> 
+<a href="https://aaaakshat.github.io/pldd/">
+      <image src="img/dataset3.jpg" height="60px">
       <h4>Dataset</h4>
 </a>
 </div>
