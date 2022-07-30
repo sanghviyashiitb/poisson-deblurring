@@ -1,6 +1,6 @@
 <div style='width:100%;'>
 <div style='float:left;width:30%;'> 
-<a  href="https://arxiv.org/pdf/2110.15314.pdf">>
+<a href="https://arxiv.org/pdf/2110.15314.pdf">
       <image src="img/pdf.png" height="60px">
       <h4>PDF</h4>
 </a>
