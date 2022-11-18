@@ -42,7 +42,8 @@ Pretrained model here:
       
       ##### Output: PSNR: 29.08, SSIM: 0.696
 
-      
+ ### Training
+ Before running ```train.py```, add clean images (for example Flickr2K) in the ```data/training``` and ```data/val``` folders.
       
  ### Citation
  
