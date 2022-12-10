@@ -3,10 +3,7 @@ Pytorch code for [Photon Limited Non-Blind Deblurring Using Algorithm Unrolling]
 
 <img src="https://user-images.githubusercontent.com/20774419/177593608-9b5ccba2-ca3d-485a-9542-5f08df8e081a.png" width="800">
 
-Pretrained model here: 
-      [OneDrive](https://1drv.ms/u/s!AjMYTt_aGQ9-hH2aIaReD3DG_ITF)
-      [Google-Drive](https://drive.google.com/file/d/1n2_RkgZ0z9rhS2r4rZ2lr2AZn_B5_vbZ/view?usp=sharing)
-
+Pretrained model [here](https://drive.google.com/file/d/1SimYIMDOijOBV_MTepM9k6xAZQHWIafo/view?usp=sharing)
 
 
 ## Instructions
@@ -17,7 +14,7 @@ Pretrained model here:
       foor@bar:~/poisson-deblurring$ 
       
       ```
-3. Download the pretrained model into ```model_zoo``` from the link [here](https://1drv.ms/u/s!AjMYTt_aGQ9-hH2aIaReD3DG_ITF)
+3. Download the pretrained model into ```model_zoo``` from the link [here](https://drive.google.com/file/d/1SimYIMDOijOBV_MTepM9k6xAZQHWIafo/view?usp=sharing)
 4. To test the network using synthetic data, run the file
       ```console
       foo@bar:~/poisson-deblurring$ python3 demo_synthetic.py  
