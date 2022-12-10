@@ -121,16 +121,16 @@ class InitNet(nn.Module):
 		return rho1_iters, rho2_iters
 		
 
-		
 class P4IP_Net(nn.Module):
-	def __init__(self, n_iters=8, device = 'cuda'):
+	def __init__(self, n_iters=8, denoiser = 'ResUNet'):
 		super(P4IP_Net, self).__init__()
 		self.n =  n_iters
 		self.init = InitNet(self.n)
 		self.X = X_Update() # FFT based quadratic solution
 		self.U = U_Update()	# Poisson MLE
-		self.Z = Z_Update_ResUNet() # BW Denoiser
-	
+		if denoiser == 'ResUNet':
+			self.Z = Z_Update_ResUNet() # BW Denoiser
+		
 	def init_l2(self, y, A, M):
 		N, C, H, W = y.size()
 		At, AtA_fft = torch.conj(A), torch.abs(A)**2
@@ -141,35 +141,30 @@ class P4IP_Net(nn.Module):
 		return x0
 
 	def forward(self, y, kernel, M):
-		device = torch.device("cuda:0" if y.is_cuda else "cpu")
-		x_list = []
-
+		z_list = []
 		N, C, H, W = y.size()
 		# Generate auxiliary variables for convolution
-		k_pad, A = psf_to_otf(kernel, y.size())
-		A =  A.to(device)
+		k_pad, A = psf_to_otf(kernel, y.size())		
+		A =  A.to('cuda')
 		At, AtA_fft = torch.conj(A), torch.abs(A)**2
 		rho1_iters, rho2_iters = self.init(kernel, M) 	# Hyperparameters
 		x = self.init_l2(y, A, M)	# Initialization using Weiner Deconvolution
-		x_list.append(x)
 		# Other ADMM variables
-		z = Variable(x.data.clone()).to(device)
-		u = Variable(y.data.clone()).to(device)
-		v1 = torch.zeros(y.size()).to(device)
-		v2 = torch.zeros(y.size()).to(device)
+		z = Variable(x.data.clone()).to('cuda')
+		u = Variable(y.data.clone()).to('cuda')
+		v1 = torch.zeros(y.size()).to('cuda')
+		v2 = torch.zeros(y.size()).to('cuda')
 			
 		for n in range(self.n):
 			rho1 = rho1_iters[:,:,:,n].view(N,1,1,1)
 			rho2 = rho2_iters[:,:,:,n].view(N,1,1,1)
 			# U, Z and X updates
 			u = self.U(conv_fft_batch(A,x) + v1, y, rho1, M)
-			z = self.Z(x + v2)
+			z = self.Z(x.float() + v2.float())
 			x = self.X( conv_fft_batch(At,u - v1), z - v2, AtA_fft, rho1, rho2)
 			# Lagrangian updates			
 			v1 = v1 + conv_fft_batch(A,x) - u
 			v2 = v2 + x - z
-			x_list.append(x)
+			z_list.append(z)
 
-		return x_list
-
-	
+		return z_list	
