@@ -1,5 +1,5 @@
 # Photon Limited Non-Blind Deblurring Using Algorithm Unrolling
-Pytorch code for [Photon Limited Non-Blind Deblurring Using Algorithm Unrolling](https://arxiv.org/abs/2110.15314) - currently under review at TCI
+Pytorch code for [Photon Limited Non-Blind Deblurring Using Algorithm Unrolling](https://arxiv.org/abs/2110.15314) - published at Transactions on Computational Imaging
 
 <img src="https://user-images.githubusercontent.com/20774419/177593608-9b5ccba2-ca3d-485a-9542-5f08df8e081a.png" width="800">
 
